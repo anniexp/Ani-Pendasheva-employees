@@ -24,16 +24,7 @@ public class ReadSCV {
     }
 
     public static void loadFile() throws Exception {
-        String pathname = "C:\\Users\\user\\Desktop\\task\\input.csv";
         List<Project> projects;
-        try {
-            projects = ReadSCV.fileToOjects(file);
-        } catch (NullPointerException exception) {
-
-          //  file = new File(pathname);
-           // projects = ReadSCV.fileToOjects(file);
-            exception.getMessage();
-        }
         projects = ReadSCV.fileToOjects(file);
         TimePeriod.getIntercectedPeriods((ArrayList<Project>) projects);
     }

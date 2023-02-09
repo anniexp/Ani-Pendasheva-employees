@@ -1,6 +1,8 @@
 package readCSV;
 
 import javax.swing.*;
+import javax.swing.border.TitledBorder;
+import javax.swing.table.JTableHeader;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,10 +25,17 @@ public class View extends JPanel implements ActionListener {
         //create panel for table
         j = new JTable(outputData.data, columnNames);
         j.setBounds(30, 40, 200, 300);
+
+        JPanel tableTitlePanel = new JPanel ();
+        tableTitlePanel.setBorder (BorderFactory.createTitledBorder (BorderFactory.createEtchedBorder (),
+                "All collaborations of employees in each project",
+                TitledBorder.CENTER,
+                TitledBorder.TOP));
+
         JScrollPane sp = new JScrollPane(j);
 
-        log = new JTextArea(5,20);
-        log.setMargin(new Insets(5,5,5,5));
+        log = new JTextArea(5, 20);
+        log.setMargin(new Insets(5, 5, 5, 5));
         log.setEditable(false);
 
         fc = new JFileChooser(new File("C:\\Users\\user\\Desktop\\task"));
@@ -34,10 +43,11 @@ public class View extends JPanel implements ActionListener {
         openButton.addActionListener(this);
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(openButton);
-        //add table and button panels
         this.add(buttonPanel, BorderLayout.PAGE_START);
         this.add(sp, BorderLayout.CENTER);
-        //this.add(log);
+        this.add(tableTitlePanel,  BorderLayout.AFTER_LAST_LINE);
+
+        this.add(log, BorderLayout.AFTER_LAST_LINE);
     }
 
     @Override
@@ -45,12 +55,13 @@ public class View extends JPanel implements ActionListener {
         if (e.getSource() == openButton) {
             int returnVal = fc.showOpenDialog(View.this);
             if (returnVal == JFileChooser.APPROVE_OPTION) {
-               file = fc.getSelectedFile();
-               System.out.println("File is :" + file.getName());
+                file = fc.getSelectedFile();
+                log.append("File is loaded. Please click on table rows to show results!");
                 try {
                     loadFile();
                 } catch (Exception ex) {
                     log.append("Error occurred.");
+                    ex.printStackTrace();
                 }
 
             } else {
