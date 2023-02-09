@@ -5,9 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import static readCSV.View.file;
+
 public class ReadSCV {
-    public static List<Project> fileToOjects(String pathname) throws Exception {
-        Scanner sc = new Scanner(new File(pathname));
+    public static List<Project> fileToOjects(File file) throws Exception {
+        Scanner sc = new Scanner(file);
         List<Project> res = new ArrayList<>();
 
         while (sc.hasNextLine()) {
@@ -19,5 +21,20 @@ public class ReadSCV {
         sc.close();
 
         return res;
+    }
+
+    public static void loadFile() throws Exception {
+        String pathname = "C:\\Users\\user\\Desktop\\task\\input.csv";
+        List<Project> projects;
+        try {
+            projects = ReadSCV.fileToOjects(file);
+        } catch (NullPointerException exception) {
+
+          //  file = new File(pathname);
+           // projects = ReadSCV.fileToOjects(file);
+            exception.getMessage();
+        }
+        projects = ReadSCV.fileToOjects(file);
+        TimePeriod.getIntercectedPeriods((ArrayList<Project>) projects);
     }
 }

@@ -8,7 +8,10 @@ public class DateFormatter {
     public static final DateTimeFormatter[] FORMATTERS = new DateTimeFormatter[] {
             DateTimeFormatter.BASIC_ISO_DATE,
             DateTimeFormatter.ofPattern("EEE, d MMM yyyy"),
-            DateTimeFormatter.ofPattern("yyyy-MM-dd")};
+            DateTimeFormatter.ofPattern("yyyy-MM-dd"),
+            DateTimeFormatter.ISO_LOCAL_DATE,
+            DateTimeFormatter.ISO_INSTANT
+    };
 
     public static LocalDate formatDate(String dateInString) {
         int i = 0;
