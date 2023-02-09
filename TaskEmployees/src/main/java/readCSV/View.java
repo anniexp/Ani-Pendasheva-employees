@@ -2,7 +2,6 @@ package readCSV;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
-import javax.swing.table.JTableHeader;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,6 +9,7 @@ import java.io.File;
 
 import static readCSV.ReadSCV.loadFile;
 import static readCSV.TimePeriod.outputData;
+import static readCSV.TimePeriod.outputDataOfPair;
 
 public class View extends JPanel implements ActionListener {
     public static File file;
@@ -21,13 +21,12 @@ public class View extends JPanel implements ActionListener {
     public View() {
         super(new BorderLayout());
 
-        String[] columnNames = {"Employee ID #1", "Employee ID #2", "Project ID", "Days worked"};
-        //create panel for table
-        j = new JTable(outputData.data, columnNames);
+        String[] columnNames = {"Employee ID #1", "Employee ID #2", "Record ID", "Days worked"};
+        j = new JTable(outputDataOfPair.data, columnNames);
         j.setBounds(30, 40, 200, 300);
 
-        JPanel tableTitlePanel = new JPanel ();
-        tableTitlePanel.setBorder (BorderFactory.createTitledBorder (BorderFactory.createEtchedBorder (),
+        JPanel tableTitlePanel = new JPanel();
+        tableTitlePanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(),
                 "All collaborations of employees in each project",
                 TitledBorder.CENTER,
                 TitledBorder.TOP));
@@ -38,14 +37,14 @@ public class View extends JPanel implements ActionListener {
         log.setMargin(new Insets(5, 5, 5, 5));
         log.setEditable(false);
 
-        fc = new JFileChooser(new File("C:\\Users\\user\\Desktop\\task"));
+        fc = new JFileChooser(new File("..\\"));
         openButton = new JButton("Open a File...");
         openButton.addActionListener(this);
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(openButton);
         this.add(buttonPanel, BorderLayout.PAGE_START);
         this.add(sp, BorderLayout.CENTER);
-        this.add(tableTitlePanel,  BorderLayout.AFTER_LAST_LINE);
+        this.add(tableTitlePanel, BorderLayout.AFTER_LAST_LINE);
 
         this.add(log, BorderLayout.AFTER_LAST_LINE);
     }
@@ -71,7 +70,7 @@ public class View extends JPanel implements ActionListener {
     }
 
     static void createAndShowGUI() {
-        JFrame frame = new JFrame("FileChooserDemo");
+        JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(new View());
         frame.pack();

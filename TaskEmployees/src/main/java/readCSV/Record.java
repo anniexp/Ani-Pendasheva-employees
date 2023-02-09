@@ -2,13 +2,13 @@ package readCSV;
 
 import java.time.LocalDate;
 
-public class Project {
+public class Record {
     private final int empID;
     private final int ProjectID;
     private final LocalDate dateFrom;
     private final LocalDate dateTo;
 
-    public Project(int empID, int projectID, String dateFrom, String dateTo) {
+    public Record(int empID, int projectID, String dateFrom, String dateTo) {
         this.empID = empID;
         this.ProjectID = projectID;
         this.dateFrom = DateFormatter.formatDate(dateFrom);
@@ -20,7 +20,7 @@ public class Project {
 
     @Override
     public String toString() {
-        return "Project{" +
+        return "Record{" +
                 "empID=" + empID +
                 ", ProjectID=" + ProjectID +
                 ", dateFrom=" + dateFrom +

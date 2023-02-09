@@ -8,15 +8,15 @@ import java.util.Scanner;
 import static readCSV.View.file;
 
 public class ReadSCV {
-    public static List<Project> fileToOjects(File file) throws Exception {
+    public static List<Record> fileToOjects(File file) throws Exception {
         Scanner sc = new Scanner(file);
-        List<Project> res = new ArrayList<>();
+        List<Record> res = new ArrayList<>();
 
         while (sc.hasNextLine()) {
             String s = sc.nextLine();
             String[] ch1 = s.split(", ", 4);
-            Project project = new Project(Integer.parseInt(ch1[0]), Integer.parseInt(ch1[1]), ch1[2], ch1[3]);
-            res.add(project);
+            Record record = new Record(Integer.parseInt(ch1[0]), Integer.parseInt(ch1[1]), ch1[2], ch1[3]);
+            res.add(record);
         }
         sc.close();
 
@@ -24,8 +24,8 @@ public class ReadSCV {
     }
 
     public static void loadFile() throws Exception {
-        List<Project> projects;
-        projects = ReadSCV.fileToOjects(file);
-        TimePeriod.getIntercectedPeriods((ArrayList<Project>) projects);
+        List<Record> records;
+        records = ReadSCV.fileToOjects(file);
+        TimePeriod.calcIntercectedPeriods((ArrayList<Record>) records);
     }
 }
