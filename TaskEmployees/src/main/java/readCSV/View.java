@@ -58,6 +58,7 @@ public class View extends JPanel implements ActionListener {
                 file = fc.getSelectedFile();
                 log.append("File is loaded. Please click on table rows to show results!");
                 try {
+                    //after data is loaded into the table, click on the table rows to show it
                     loadFile();
                 } catch (Exception ex) {
                     log.append("Error occurred.");

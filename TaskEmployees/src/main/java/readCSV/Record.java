@@ -1,7 +1,6 @@
 package readCSV;
 
 import java.time.LocalDate;
-
 /**
  * Cvs file lines as objects
  */

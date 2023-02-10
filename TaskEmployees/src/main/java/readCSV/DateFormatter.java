@@ -3,6 +3,7 @@ package readCSV;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.Locale;
 
 /**
  * formats different input dates to LocalDate
@@ -12,7 +13,11 @@ public class DateFormatter {
             DateTimeFormatter.BASIC_ISO_DATE,
             DateTimeFormatter.ofPattern("EEE, d MMM yyyy"),
             DateTimeFormatter.ofPattern("yyyy-MM-dd"),
+            DateTimeFormatter.ofPattern("MM-dd-yyyy"),
+            DateTimeFormatter.ofPattern("M-d-yy"),
+            DateTimeFormatter.ofPattern("dd-MM-uuuu", Locale.ENGLISH),
             DateTimeFormatter.ISO_LOCAL_DATE,
+            DateTimeFormatter.ISO_DATE_TIME,
             DateTimeFormatter.ISO_INSTANT
     };
 
