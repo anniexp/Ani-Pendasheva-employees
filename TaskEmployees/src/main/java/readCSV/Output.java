@@ -18,7 +18,7 @@ public class Output {
     /**
      * Task Requirement for basic output
      *
-     * @param - entry - identifies the pair of employees who have worked
+     * @param - entry - the pair of employees who have worked
      *          together on common projects for the longest period of time.
      */
     public static void print(Map.Entry entry) {
@@ -30,7 +30,7 @@ public class Output {
     }
 
     /**
-     * converts object of Record to String[] and adds it to data matrix
+     * converts object of Record to String[] and adds it to data matrix, to be used to fill the table in the ui
      */
     public void addToDataM(int pId, int emplId1, int emplId2, long days) {
         String prId = pId + "";

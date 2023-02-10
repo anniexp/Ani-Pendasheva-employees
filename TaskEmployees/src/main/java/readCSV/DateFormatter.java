@@ -4,6 +4,9 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
+/**
+ * formats different input dates to LocalDate
+ */
 public class DateFormatter {
     public static final DateTimeFormatter[] FORMATTERS = new DateTimeFormatter[] {
             DateTimeFormatter.BASIC_ISO_DATE,

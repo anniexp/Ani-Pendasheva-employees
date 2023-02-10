@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 import static readCSV.ReadSCV.loadFile;
-import static readCSV.TimePeriod.outputData;
 import static readCSV.TimePeriod.outputDataOfPair;
 
 public class View extends JPanel implements ActionListener {
@@ -18,6 +17,9 @@ public class View extends JPanel implements ActionListener {
     JFileChooser fc;
     JTextArea log;
 
+    /**
+     * Panel Constructor
+     */
     public View() {
         super(new BorderLayout());
 
@@ -45,7 +47,6 @@ public class View extends JPanel implements ActionListener {
         this.add(buttonPanel, BorderLayout.PAGE_START);
         this.add(sp, BorderLayout.CENTER);
         this.add(tableTitlePanel, BorderLayout.AFTER_LAST_LINE);
-
         this.add(log, BorderLayout.AFTER_LAST_LINE);
     }
 
@@ -69,6 +70,9 @@ public class View extends JPanel implements ActionListener {
         }
     }
 
+    /**
+     * Initialises the ui frame
+     */
     static void createAndShowGUI() {
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

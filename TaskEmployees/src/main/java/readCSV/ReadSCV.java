@@ -7,6 +7,9 @@ import java.util.Scanner;
 
 import static readCSV.View.file;
 
+/**
+ * Store the cvs file lines as objects
+ */
 public class ReadSCV {
     public static List<Record> fileToOjects(File file) throws Exception {
         Scanner sc = new Scanner(file);

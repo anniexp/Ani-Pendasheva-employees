@@ -2,6 +2,9 @@ package readCSV;
 
 import java.time.LocalDate;
 
+/**
+ * Cvs file lines as objects
+ */
 public class Record {
     private final int empID;
     private final int ProjectID;

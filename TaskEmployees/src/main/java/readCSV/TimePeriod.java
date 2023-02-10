@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Construction of the final output data
+ */
 public class TimePeriod {
     public static Output outputData = new Output();
     public static Output outputDataOfPair = new Output();
@@ -40,7 +43,6 @@ public class TimePeriod {
                     outputData.addToDataM(p1.getProjectID(), p1.getEmpID(), p2.getEmpID(), record);
                     continue;
                 }
-
                 if (p1From.isAfter(p2From) && p1To.isAfter(p2To)) {
                     long record = p1From.until(p2To, ChronoUnit.DAYS);
                     if (record > 0) {
@@ -87,6 +89,7 @@ public class TimePeriod {
                 }
             }
         }
+
         return res.entrySet().stream().max(Map.Entry.comparingByValue()).get();
     }
 
